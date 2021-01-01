@@ -4,27 +4,25 @@ USE QuanLyQuanCaFe
 GO
 --food
 --table
---food category
---account
---bill
---billInfo
-CREATE TABLE Tablefood
+--danh sách đồ ăn
+--tài khoản
+--hóa đơn
+--thông tin hóa đơn
+CREATE TABLE Ban
 (
 	id INT IDENTITY PRIMARY KEY,
 	name NVARCHAR(100) NOT NULL,
 	state NVARCHAR(100) NOT NULL DEFAULT N'Trống'--trống||có người
 )
 GO
-CREATE TABLE Acount
+CREATE TABLE tk
 (
 	id INT IDENTITY PRIMARY KEY,
-	DisplayName NVARCHAR(100) NOT NULL,
 	UserName NVARCHAR(100)NOT NULL,
 	Password NVARCHAR(100)NOT NULL,
-	Type INT NOT NULL
-)
+	
 GO
-CREATE TABLE Foodcategory
+CREATE TABLE DANHMUCDOAN
 (
 	id INT IDENTITY PRIMARY KEY,
 	name NVARCHAR(100) NOT NULL
@@ -38,7 +36,7 @@ CREATE TABLE Food
 	price FLOAT NOT NULL
 )
 GO
-CREATE TABLE Bill
+CREATE TABLE HOADON
 (
 	id INT IDENTITY PRIMARY KEY,
 	DatecheckIn DATE NOT NULL,
@@ -47,7 +45,7 @@ CREATE TABLE Bill
 	state INT NOT NULL--1 đã thanh toán||0 là chưa
 )
 GO
-CREATE TABLE BillInFo
+CREATE TABLE THONGTINHOADON
 (	
 	id INT IDENTITY PRIMARY KEY,
 	idBill INT NOT NULL,
